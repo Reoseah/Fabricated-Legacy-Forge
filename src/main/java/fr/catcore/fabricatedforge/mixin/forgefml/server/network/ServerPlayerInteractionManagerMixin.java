@@ -56,7 +56,7 @@ public abstract class ServerPlayerInteractionManagerMixin implements IServerPlay
      */
     @Overwrite
     public void method_2167(int par1, int par2, int par3, int par4) {
-        if (!this.gameMode.isAdventure()) {
+        if (!this.gameMode.shouldLimitWorldModification()) {
             PlayerInteractEvent event = ForgeEventFactory.onPlayerInteract(this.player, PlayerInteractEvent.Action.LEFT_CLICK_BLOCK, par1, par2, par3, par4);
             if (event.isCanceled()) {
                 this.player.field_2823.sendPacket(new BlockUpdateS2CPacket(par1, par2, par3, this.world));
@@ -133,7 +133,7 @@ public abstract class ServerPlayerInteractionManagerMixin implements IServerPlay
      */
     @Overwrite
     public boolean method_2173(int par1, int par2, int par3) {
-        if (this.gameMode.isAdventure()) {
+        if (this.gameMode.shouldLimitWorldModification()) {
             return false;
         } else {
             ItemStack stack = this.player.getMainHandStack();

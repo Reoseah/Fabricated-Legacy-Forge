@@ -445,7 +445,7 @@ public abstract class MobEntityMixin extends Entity implements IMobEntity {
                 int var3 = this.world.getBlock(MathHelper.floor(this.x), MathHelper.floor(this.y - 0.20000000298023224 - (double)this.heightOffset), MathHelper.floor(this.z));
                 if (var3 > 0) {
                     BlockSoundGroup var4 = Block.BLOCKS[var3].soundGroup;
-                    this.world.playSound(this, var4.getStepId(), var4.getVolume() * 0.5F, var4.getPitch() * 0.75F);
+                    this.world.playSound(this, var4.getStepSound(), var4.getVolume() * 0.5F, var4.getPitch() * 0.75F);
                 }
             }
 
@@ -471,7 +471,7 @@ public abstract class MobEntityMixin extends Entity implements IMobEntity {
             if (this.horizontalCollision && this.doesNotCollide(this.velocityX, this.velocityY + 0.6000000238418579 - this.y + var9, this.velocityZ)) {
                 this.velocityY = 0.30000001192092896;
             }
-        } else if (this.method_2469() && (!((Object)this instanceof PlayerEntity) || !((PlayerEntity)(Object)this).abilities.flying)) {
+        } else if (this.hasNoSpawnCollisions() && (!((Object)this instanceof PlayerEntity) || !((PlayerEntity)(Object)this).abilities.flying)) {
             var9 = this.y;
             this.updateVelocity(par1, par2, 0.02F);
             this.move(this.velocityX, this.velocityY, this.velocityZ);
@@ -636,7 +636,7 @@ public abstract class MobEntityMixin extends Entity implements IMobEntity {
         this.world.profiler.pop();
         this.world.profiler.push("jump");
         if (this.field_3350) {
-            if (!this.isTouchingWater() && !this.method_2469()) {
+            if (!this.isTouchingWater() && !this.hasNoSpawnCollisions()) {
                 if (this.onGround && this.field_3327 == 0) {
                     this.method_2612();
                     this.field_3327 = 10;

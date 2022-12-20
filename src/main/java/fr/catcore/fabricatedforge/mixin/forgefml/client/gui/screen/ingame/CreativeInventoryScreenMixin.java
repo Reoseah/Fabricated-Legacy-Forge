@@ -107,7 +107,7 @@ public abstract class CreativeInventoryScreenMixin extends InventoryScreen {
         if (ItemGroup.itemGroups[selectedTab] == null) {
             return false;
         } else {
-            return selectedTab != ItemGroup.INVENTORY.getIndex() && ItemGroup.itemGroups[selectedTab].hasScrollbar() && ((class_416)this.screenHandler).method_1153();
+            return selectedTab != ItemGroup.INVENTORY.getIndex() && ItemGroup.itemGroups[selectedTab].hasScrollbar() && ((class_416)this.screenHandler).isFull();
         }
     }
 
@@ -121,8 +121,8 @@ public abstract class CreativeInventoryScreenMixin extends InventoryScreen {
             int var2 = selectedTab;
             selectedTab = par1CreativeTabs.getIndex();
             class_416 var3 = (class_416)this.screenHandler;
-            var3.field_1384.clear();
-            par1CreativeTabs.showItems(var3.field_1384);
+            var3.itemList.clear();
+            par1CreativeTabs.showItems(var3.itemList);
             if (par1CreativeTabs == ItemGroup.INVENTORY) {
                 ScreenHandler var4 = this.field_1229.playerEntity.playerScreenHandler;
                 if (this.slots == null) {
@@ -181,7 +181,7 @@ public abstract class CreativeInventoryScreenMixin extends InventoryScreen {
             }
 
             this.scrollPosition = 0.0F;
-            var3.method_1152(0.0F);
+            var3.scrollItems(0.0F);
         }
     }
 
@@ -217,7 +217,7 @@ public abstract class CreativeInventoryScreenMixin extends InventoryScreen {
                 this.scrollPosition = 1.0F;
             }
 
-            ((class_416)this.screenHandler).method_1152(this.scrollPosition);
+            ((class_416)this.screenHandler).scrollItems(this.scrollPosition);
         }
 
         super.render(par1, par2, par3);

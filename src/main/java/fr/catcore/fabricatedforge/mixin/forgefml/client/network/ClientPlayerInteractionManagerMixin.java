@@ -64,7 +64,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
         ItemStack stack = this.field_1646.playerEntity.getMainHandStack();
         if (stack != null && stack.getItem() != null && ((IItem)stack.getItem()).onBlockStartBreak(stack, par1, par2, par3, this.field_1646.playerEntity)) {
             return false;
-        } else if (this.gameMode.isAdventure()) {
+        } else if (this.gameMode.shouldLimitWorldModification()) {
             return false;
         } else {
             ClientWorld var5 = this.field_1646.world;
@@ -117,7 +117,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
             Block var6 = Block.BLOCKS[var5];
             this.currentBreakingProgress += var6.method_405(this.field_1646.playerEntity, this.field_1646.playerEntity.world, par1, par2, par3);
             if (this.blockBreakingSoundCooldown % 4.0F == 0.0F && var6 != null) {
-                this.field_1646.soundSystem.playSound(var6.soundGroup.getStepId(), (float)par1 + 0.5F, (float)par2 + 0.5F, (float)par3 + 0.5F, (var6.soundGroup.getVolume() + 1.0F) / 8.0F, var6.soundGroup.getPitch() * 0.5F);
+                this.field_1646.soundSystem.playSound(var6.soundGroup.getStepSound(), (float)par1 + 0.5F, (float)par2 + 0.5F, (float)par3 + 0.5F, (var6.soundGroup.getVolume() + 1.0F) / 8.0F, var6.soundGroup.getPitch() * 0.5F);
             }
 
             ++this.blockBreakingSoundCooldown;

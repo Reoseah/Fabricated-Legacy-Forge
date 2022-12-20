@@ -140,7 +140,7 @@ public abstract class MobSpawnerHelperMixin {
 
                                             MobEntity var38;
                                             try {
-                                                var38 = (MobEntity)var21.type.getConstructor(World.class).newInstance(par0WorldServer);
+                                                var38 = (MobEntity)var21.entity.getConstructor(World.class).newInstance(par0WorldServer);
                                             } catch (Exception var33) {
                                                 var33.printStackTrace();
                                                 return var3;

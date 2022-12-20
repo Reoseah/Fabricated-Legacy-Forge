@@ -117,7 +117,7 @@ public abstract class WorldRendererMixin implements IWorldRenderer {
     @Overwrite
     public void reload() {
         if (this.world != null) {
-            Block.LEAVES.method_325(this.field_1918.options.fancyGraphics);
+            Block.LEAVES.setGraphics(this.field_1918.options.fancyGraphics);
             this.renderDistance = this.field_1918.options.renderDistance;
             int var2;
             int var3;
@@ -954,7 +954,7 @@ public abstract class WorldRendererMixin implements IWorldRenderer {
                 var20 = par6 & 4095;
                 if (var20 > 0) {
                     Block var40 = Block.BLOCKS[var20];
-                    this.field_1918.soundSystem.playSound(var40.soundGroup.getHitId(), (float)par3 + 0.5F, (float)par4 + 0.5F, (float)par5 + 0.5F, (var40.soundGroup.getVolume() + 1.0F) / 2.0F, var40.soundGroup.getPitch() * 0.8F);
+                    this.field_1918.soundSystem.playSound(var40.soundGroup.getDigSound(), (float)par3 + 0.5F, (float)par4 + 0.5F, (float)par5 + 0.5F, (var40.soundGroup.getVolume() + 1.0F) / 2.0F, var40.soundGroup.getPitch() * 0.8F);
                 }
 
                 this.field_1918.particleManager.method_1294(par3, par4, par5, par6 & 4095, par6 >> 12 & 255);

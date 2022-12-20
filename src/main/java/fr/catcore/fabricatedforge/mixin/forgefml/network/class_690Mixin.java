@@ -82,7 +82,7 @@ public abstract class class_690Mixin extends Packet {
         try {
             par1DataOutputStream.writeInt(this.entityId);
             putString(this.levelType == null ? "" : this.levelType.getName(), par1DataOutputStream);
-            int var2 = this.gameMode.getGameModeId();
+            int var2 = this.gameMode.getId();
             if (this.hardcore) {
                 var2 |= 8;
             }

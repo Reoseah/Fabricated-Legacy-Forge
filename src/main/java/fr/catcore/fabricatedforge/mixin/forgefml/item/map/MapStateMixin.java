@@ -124,27 +124,27 @@ public abstract class MapStateMixin extends PersistentState implements IMapState
 
         for(int var14 = 0; var14 < this.updateTrackers.size(); ++var14) {
             class_90 var4 = (class_90)this.updateTrackers.get(var14);
-            if (!var4.playerEntity.removed && var4.playerEntity.inventory.contains(par2ItemStack)) {
-                float var5 = (float)(var4.playerEntity.x - (double)this.xCenter) / (float)(1 << this.scale);
-                float var6 = (float)(var4.playerEntity.z - (double)this.zCenter) / (float)(1 << this.scale);
+            if (!var4.player.removed && var4.player.inventory.contains(par2ItemStack)) {
+                float var5 = (float)(var4.player.x - (double)this.xCenter) / (float)(1 << this.scale);
+                float var6 = (float)(var4.player.z - (double)this.zCenter) / (float)(1 << this.scale);
                 byte var7 = 64;
                 byte var8 = 64;
                 if (var5 >= (float)(-var7) && var6 >= (float)(-var8) && var5 <= (float)var7 && var6 <= (float)var8) {
                     byte var9 = 0;
                     byte var10 = (byte)((int)((double)(var5 * 2.0F) + 0.5));
                     byte var11 = (byte)((int)((double)(var6 * 2.0F) + 0.5));
-                    byte var12 = (byte)((int)((double)var4.playerEntity.yaw * 16.0 / 360.0));
+                    byte var12 = (byte)((int)((double)var4.player.yaw * 16.0 / 360.0));
                     if (this.c < 0) {
                         int var13 = this.field_206 / 10;
                         var12 = (byte)(var13 * var13 * 34187121 + var13 * 121 >> 15 & 15);
                     }
 
-                    if (var4.playerEntity.dimension == this.c) {
+                    if (var4.player.dimension == this.c) {
                         this.field_208.add(new class_91((MapState)(Object) this, var9, var10, var11, var12));
                     }
                 }
             } else {
-                this.updateTrackersByPlayer.remove(var4.playerEntity);
+                this.updateTrackersByPlayer.remove(var4.player);
                 this.updateTrackers.remove(var4);
             }
         }

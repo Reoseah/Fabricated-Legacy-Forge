@@ -43,7 +43,7 @@ public abstract class VillagePiecesMixin {
         var2.add(new class_44(class_52.class, 8, MathHelper.nextInt(par0Random, par1, 3 + par1 * 2)));
         VillagerRegistry.addExtraVillageComponents(var2, par0Random, par1);
 
-        var2.removeIf(o -> ((class_44) o).field_81 == 0);
+        var2.removeIf(o -> ((class_44) o).limit == 0);
 
         return var2;
     }
@@ -54,7 +54,7 @@ public abstract class VillagePiecesMixin {
      */
     @Overwrite
     private static class_53 method_86(class_50 par0ComponentVillageStartPiece, class_44 par1StructureVillagePieceWeight, List par2List, Random par3Random, int par4, int par5, int par6, int par7, int par8) {
-        Class<?> var9 = par1StructureVillagePieceWeight.field_78;
+        Class<?> var9 = par1StructureVillagePieceWeight.pieceType;
         Object var10;
         if (var9 == class_46.class) {
             var10 = class_46.method_101(par0ComponentVillageStartPiece, par2List, par3Random, par4, par5, par6, par7, par8);

@@ -73,12 +73,12 @@ public abstract class BlockItemMixin extends Item implements IBlockItem {
             return false;
         } else if (!par2EntityPlayer.method_3204(par4, par5, par6)) {
             return false;
-        } else if (par5 == 255 && Block.BLOCKS[this.blockItemId].material.hasCollision()) {
+        } else if (par5 == 255 && Block.BLOCKS[this.blockItemId].material.isSolid()) {
             return false;
         } else if (par3World.method_3602(this.blockItemId, par4, par5, par6, false, par7, par2EntityPlayer)) {
             Block var12 = Block.BLOCKS[this.blockItemId];
             if (this.placeBlockAt(par1ItemStack, par2EntityPlayer, par3World, par4, par5, par6, par7, par8, par9, par10)) {
-                par3World.playSound((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), var12.soundGroup.getHitId(), (var12.soundGroup.getVolume() + 1.0F) / 2.0F, var12.soundGroup.getPitch() * 0.8F);
+                par3World.playSound((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), var12.soundGroup.getDigSound(), (var12.soundGroup.getVolume() + 1.0F) / 2.0F, var12.soundGroup.getPitch() * 0.8F);
                 --par1ItemStack.count;
             }
 

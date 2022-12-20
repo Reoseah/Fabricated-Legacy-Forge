@@ -132,7 +132,7 @@ public class EntityRegistry {
             for (SpawnEntry entry : spawns)
             {
                 //Adjusting an existing spawn entry
-                if (entry.type == entityClass)
+                if (entry.entity == entityClass)
                 {
                     entry.weight = weightedProb;
                     entry.minGroupSize = min;
@@ -162,7 +162,7 @@ public class EntityRegistry {
             while (spawns.hasNext())
             {
                 SpawnEntry entry = spawns.next();
-                if (entry.type == entityClass)
+                if (entry.entity == entityClass)
                 {
                     spawns.remove();
                 }

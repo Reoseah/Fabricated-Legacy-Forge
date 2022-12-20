@@ -23,7 +23,7 @@ public class AnvilWorldSaveHandlerMixin extends WorldSaveHandler {
      */
     @Overwrite
     public ChunkStorage getChunkWriter(Dimension par1WorldProvider) {
-        File var2 = this.method_198();
+        File var2 = this.getWorldFolder();
         if (par1WorldProvider.getSaveFolder() != null) {
             File var3 = new File(var2, par1WorldProvider.getSaveFolder());
             var3.mkdirs();

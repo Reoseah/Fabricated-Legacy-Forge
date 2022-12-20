@@ -66,7 +66,7 @@ public class VillagerRegistry {
     }
 
     public static Object getVillageComponent(class_44 villagePiece, class_50 startPiece, List pieces, Random random, int p1, int p2, int p3, int p4, int p5) {
-        return ((VillagerRegistry.IVillageCreationHandler)instance().villageCreationHandlers.get(villagePiece.field_78)).buildComponent(villagePiece, startPiece, pieces, random, p1, p2, p3, p4, p5);
+        return ((VillagerRegistry.IVillageCreationHandler)instance().villageCreationHandlers.get(villagePiece.pieceType)).buildComponent(villagePiece, startPiece, pieces, random, p1, p2, p3, p4, p5);
     }
 
     public static void addEmeraldBuyRecipe(VillagerEntity villager, TraderOfferList list, Random random, Item item, float chance, int min, int max) {

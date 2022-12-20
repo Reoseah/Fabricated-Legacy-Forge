@@ -76,7 +76,7 @@ public abstract class MinecraftDedicatedServerMixin extends MinecraftServer impl
             this.setMotd(this.abstractPropertiesHandler.getOrDefault("motd", "A Minecraft Server"));
             ((IMinecraftServer)this).setSpawnProtectionSize(this.abstractPropertiesHandler.getIntOrDefault("spawn-protection-size", 16));
             this.shouldGenerateStructures = this.abstractPropertiesHandler.getBooleanOrDefault("generate-structures", true);
-            int var2 = this.abstractPropertiesHandler.getIntOrDefault("gamemode", GameMode.SURVIVAL.getGameModeId());
+            int var2 = this.abstractPropertiesHandler.getIntOrDefault("gamemode", GameMode.SURVIVAL.getId());
             this.field_2736 = LevelInfo.method_3754(var2);
             field_3848.info("Default game type: " + this.field_2736);
             InetAddress var3 = null;

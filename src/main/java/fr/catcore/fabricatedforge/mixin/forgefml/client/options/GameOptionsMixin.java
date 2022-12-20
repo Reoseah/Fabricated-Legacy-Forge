@@ -121,10 +121,10 @@ public abstract class GameOptionsMixin {
     public String getStringOption(GameOption par1EnumOptions) {
         Language var2 = Language.getInstance();
         String var3 = var2.translate(par1EnumOptions.getTranslationKey()) + ": ";
-        if (par1EnumOptions.method_879()) {
+        if (par1EnumOptions.isNumeric()) {
             float var5 = this.getFLoatOption(par1EnumOptions);
             return par1EnumOptions == GameOption.SENSITIVITY ? (var5 == 0.0F ? var3 + var2.translate("options.sensitivity.min") : (var5 == 1.0F ? var3 + var2.translate("options.sensitivity.max") : var3 + (int)(var5 * 200.0F) + "%")) : (par1EnumOptions == GameOption.FOV ? (var5 == 0.0F ? var3 + var2.translate("options.fov.min") : (var5 == 1.0F ? var3 + var2.translate("options.fov.max") : var3 + (int)(70.0F + var5 * 40.0F))) : (par1EnumOptions == GameOption.GAMMA ? (var5 == 0.0F ? var3 + var2.translate("options.gamma.min") : (var5 == 1.0F ? var3 + var2.translate("options.gamma.max") : var3 + "+" + (int)(var5 * 100.0F) + "%")) : (par1EnumOptions == GameOption.CHAT_OPACITY ? var3 + (int)(var5 * 90.0F + 10.0F) + "%" : (var5 == 0.0F ? var3 + var2.translate("options.off") : var3 + (int)(var5 * 100.0F) + "%"))));
-        } else if (par1EnumOptions.method_881()) {
+        } else if (par1EnumOptions.isBooleanToggle()) {
             boolean var4 = this.gteIntOption(par1EnumOptions);
             return var4 ? var3 + var2.translate("options.on") : var3 + var2.translate("options.off");
         } else {

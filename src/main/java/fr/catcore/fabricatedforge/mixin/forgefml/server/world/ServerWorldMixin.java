@@ -12,7 +12,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.BlockAction;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ProgressListener;
-import net.minecraft.util.TickableEntry;
+import net.minecraft.util.ScheduledTick;
 import net.minecraft.util.class_797;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
@@ -209,7 +209,7 @@ public abstract class ServerWorldMixin extends World implements IServerWorld {
      */
     @Overwrite
     public void method_3599(int par1, int par2, int par3, int par4, int par5) {
-        TickableEntry var6 = new TickableEntry(par1, par2, par3, par4);
+        ScheduledTick var6 = new ScheduledTick(par1, par2, par3, par4);
         boolean isForced = this.getPersistentChunks().containsKey(new ChunkPos(var6.x >> 4, var6.z >> 4));
         int var7 = isForced ? 0 : 8;
         if (this.immediateUpdates) {
@@ -264,7 +264,7 @@ public abstract class ServerWorldMixin extends World implements IServerWorld {
             }
 
             for(int var3 = 0; var3 < var2; ++var3) {
-                TickableEntry var4 = (TickableEntry)this.field_2812.first();
+                ScheduledTick var4 = (ScheduledTick)this.field_2812.first();
                 if (!par1 && var4.time > this.levelProperties.getTimeOfDay()) {
                     break;
                 }
